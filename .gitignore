@@ -1,0 +1,7 @@
+*.txt
+spec.html
+spec
+*.swp
+*.class
+.svn/
+*.pdf
