@@ -9,14 +9,14 @@ In previous labs, we have used linguistic inspired analysis to tag words by thei
 
 ![](http://i.imgur.com/TnC7Lit.png)
 
-In the above image, a sentence is seperated into seven tokens and these tokens are related as visualized by the arrows. Each arrow is tagged with a dependency relation; one we are interested in is `SS`, meaning subject. The above relation between token 1 and 2 can be stated as "`den` is the subject of `Är`".
+In the above image, a sentence is seperated into seven tokens and these tokens are related as visualized by the arrows. Each arrow is tagged with a dependency relation; one we are interested in is `SS`, meaning subject. The above relation between token 1 and 2 can be stated as "`Är` is the subject of `den`".
 
 For this lab, the tagged and annotated CONLL-X training data set was used. This data set consisted of about 200,000 words, where each word was tagged with 10 different fields, including the dependency relation to some other word in it's sentence. We also used the open source program _What's wrong with my NLP_ to visualize dependency relations, as is shown in the image above.
 
 Extracting Subject-Verb pairs
 -----------------------------
 
-The first task was to attempt to extract every subject verb pair, as defined by the `SS` dependency relation. To implement this, a Triple class (although at this point it was more of a Double) was written to keep track of the pairs together with a HashMap of their frequencies. To count all the pairs, the list of words was iterated through and a Triple created everytime the `SS` relation was detected. A total of 18,885 subject-verb pairs were discovered by the program the program. The following were the five most frequent and their frequencies:
+The first task was to attempt to extract every subject verb pair, as defined by the `SS` dependency relation. To implement this, a Triple class (although at this point it was more of a Double) was written to keep track of the pairs together with a HashMap of their frequencies. To count all the pairs, the list of words was iterated through and a Triple created everytime the `SS` relation was detected. A total of 18,885 subject-verb pairs were discovered by the program. The following were the five most frequent and their respective frequencies:
 
 ```
 Subject: det, Verb: är
@@ -34,7 +34,7 @@ Subject: man, Verb: har
 Extracting Subject-Verb-Object triples
 --------------------------------------
 
-Extracting the triples required a little more work. The program was refined to, on encountering an `SS` relation, iterate an additional time through the sentence and find if any other word contained an `OO` relation to the same verb. In addition, a TripleStore class was written to help keep track of the frequencies and triples. A total of 5,844 triples were found. The following were the five most frequence and their respective frequencies:
+Extracting the triples required a little more work. The program was refined to, on encountering an `SS` relation, iterate an additional time through the sentence and find if any other word contained an `OO` relation to the same verb. In addition, a TripleStore class was written to help keep track of the frequencies and triples. A total of 5,844 triples were found. The following were the five most frequent and their respective frequencies:
 
 ```
 Subject: man, Verb: gifter, Object: sig
